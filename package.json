@@ -1,0 +1,18 @@
+{
+  "name": "pokemon-inventory-pg",
+  "version": "1.0.0",
+  "description": "a pokemon inventory app, where you can see pokemon by their type opf their generation, and create youwn category and add pokemons to that category, also be able to delete that category.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "pg": "^8.14.1"
+  }
+}
