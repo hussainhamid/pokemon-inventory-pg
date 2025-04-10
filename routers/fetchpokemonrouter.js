@@ -10,23 +10,39 @@ allPokemonRouter.get("/", async (req, res) => {
   try {
     const data = await fetchAllPokemon();
 
-    const pokeDataArray = [];
-
-    for (const pokemon of data.results) {
-      const pokemonUrl = pokemon.url;
-
-      const pokemonData = await fetchPokemonData(pokemonUrl);
-
-      const pokemonName = pokemonData.name;
-      const pokemonGeneration = pokemonData.generation.name;
-      pokeDataArray.push({
-        name: pokemonName,
-        generation: pokemonGeneration,
-      });
+    if (!data || !data.results) {
+      return res.status(500).send("Failed to load Pokémon data");
     }
 
-    console.log("pokeNames:", pokeDataArray);
-    res.render("displayallpokemon", { allPokemons: pokeDataArray });
+    const allPokemons = await Promise.all(
+      data.results.map(async (pokemon) => {
+        try {
+          const pokemonUrl = await pokemon.url;
+          const pokemonData = await fetchPokemonData(pokemonUrl);
+
+          const pokemonId = pokemonData.id;
+          const pokemonName = pokemonData.name;
+          const eachPokemonUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`;
+          const pokeImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
+          const pokeType = pokemonData.types.map((t) => t.type.name);
+
+          return {
+            name: pokemonName,
+            img: pokeImg,
+            type: pokeType,
+            pokeUrl: eachPokemonUrl,
+          };
+        } catch (err) {
+          console.error("failed in the pokemonRouter", err);
+          return null;
+        }
+      })
+    );
+
+    const filteredPokemons = allPokemons.filter(Boolean);
+    res.render("displayallpokemon", {
+      allPokemons: filteredPokemons,
+    });
   } catch (err) {
     console.error("an error occured in the router", err);
   }

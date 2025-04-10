@@ -6,15 +6,17 @@
     <title>All pokemon</title>
   </head>
   <body>
-    <div>
+    <div class="pokemon-container">
       <% allPokemons.forEach((pokemon) => { %>
 
       <div>
-        <p><%= pokemon.name %></p>
-        <p><%= pokemon.generation %></p>
+        <img src="<%= pokemon.img %>" alt="<%= pokemon.name %>" />
+        <a href="<%= pokemon.pokeUrl %>"><%= pokemon.name %></a>
+        <p>type: <%= pokemon.type.join(", ") %></p>
       </div>
 
       <% }) %>
+    </div>
     </div>
   </body>
 </html>
