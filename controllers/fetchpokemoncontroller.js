@@ -1,9 +1,6 @@
 async function fetchAllPokemon() {
   try {
-    let limit = 50;
-    let offset = 0;
-
-    const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
+    const url = `https://pokeapi.co/api/v2/pokemon?limit=50&offset=0`;
 
     const response = await fetch(url);
 
@@ -15,7 +12,6 @@ async function fetchAllPokemon() {
     return data;
   } catch (err) {
     console.error(`error: `, err);
-    return null;
   }
 }
 

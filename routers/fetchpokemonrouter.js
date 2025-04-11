@@ -22,11 +22,14 @@ allPokemonRouter.get("/", async (req, res) => {
 
           const pokemonId = pokemonData.id;
           const pokemonName = pokemonData.name;
-          const eachPokemonUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`;
-          const pokeImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
+          const eachPokemonUrl = pokemonUrl;
+          const pokeImg =
+            `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png` ||
+            `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
           const pokeType = pokemonData.types.map((t) => t.type.name);
 
           return {
+            pokeId: pokemonId,
             name: pokemonName,
             img: pokeImg,
             type: pokeType,
@@ -40,6 +43,7 @@ allPokemonRouter.get("/", async (req, res) => {
     );
 
     const filteredPokemons = allPokemons.filter(Boolean);
+
     res.render("displayallpokemon", {
       allPokemons: filteredPokemons,
     });

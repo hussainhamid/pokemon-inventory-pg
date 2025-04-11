@@ -3,16 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>All pokemon</title>
   </head>
   <body>
+
+    
+
     <div class="pokemon-container">
       <% allPokemons.forEach((pokemon) => { %>
 
-      <div>
-        <img src="<%= pokemon.img %>" alt="<%= pokemon.name %>" />
-        <a href="<%= pokemon.pokeUrl %>"><%= pokemon.name %></a>
-        <p>type: <%= pokemon.type.join(", ") %></p>
+      <div class="pokemon-div">
+
+
+        <img class="poke-img"  src="<%= pokemon.img %>" alt="<%= pokemon.name %>" />
+        
+        <p class="poke-id">Id: <%= pokemon.pokeId %></p>
+        
+        <p>Name: <a class="poke-name" href="<%= pokemon.pokeUrl %>"><%= pokemon.name %></a></p>
+        
+        <p class="poke-type">type: <%= pokemon.type.join(", ") %></p>
+      
+      
       </div>
 
       <% }) %>
