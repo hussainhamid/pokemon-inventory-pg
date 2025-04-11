@@ -1,0 +1,41 @@
+:root {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  box-sizing: border-box;
+}
+
+.pokemon-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  row-gap: 30px;
+  align-items: center;
+  padding: 40px;
+}
+
+.pokemon-container a {
+  display: inline;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.poke-name:hover {
+  text-decoration: underline;
+}
+
+.pokemon-div {
+  width: 600px;
+  height: 300px;
+}
+
+.poke-img {
+  background: gray;
+  border-radius: 20px;
+  object-fit: contain;
+  width: 150px;
+  height: 150px;
+  transition: transform 0.25s ease-in-out;
+}
+
+.poke-img:hover {
+  transform: scale(1.1);
+}
