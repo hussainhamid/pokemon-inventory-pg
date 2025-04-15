@@ -8,13 +8,18 @@
   </head>
   <body>
 
-    
+
+    <nav class="poke-nav">
+      <button class="btn all-poke-btn" onclick="if (location.pathname !== '/') location.href='/'">All pokemons</button>
+      <button class="btn your-poke-btn">Your pokemons</button>
+    </nav>
+
 
     <div class="pokemon-container">
-      <% allPokemons.forEach((pokemon) => { %>
+
+      <% allPokemons.forEach((pokemon) => { %>        
 
       <div class="pokemon-div">
-
 
         <img class="poke-img"  src="<%= pokemon.img %>" alt="<%= pokemon.name %>" />
         
@@ -23,12 +28,10 @@
         <p>Name: <a class="poke-name" href="<%= pokemon.pokeUrl %>"><%= pokemon.name %></a></p>
         
         <p class="poke-type">type: <%= pokemon.type.join(", ") %></p>
-      
-      
+
       </div>
 
       <% }) %>
-    </div>
     </div>
   </body>
 </html>
