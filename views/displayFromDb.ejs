@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>All pokemon</title>
+    <title>All db pokemons</title>
   </head>
   <body>
 
@@ -21,13 +21,13 @@
 
       <div class="pokemon-div">
 
-        <img class="poke-img"  src="<%= pokemon.img %>" alt="<%= pokemon.name %>" />
+        <img class="poke-img"  src="<%= pokemon.poke_img_url%>" alt="<%= pokemon.name %>" />
         
-        <p class="poke-id">Id: <%= pokemon.pokeId %></p>
+        <p class="poke-id">Id: <%= pokemon.poke_id %></p>
         
         <p>Name: <%= pokemon.name %></p>
         
-        <p class="poke-type">type: <%= pokemon.type%></p>
+        <p class="poke-type">type: <%= pokemon.poke_type %></p>
 
       </div>
 
