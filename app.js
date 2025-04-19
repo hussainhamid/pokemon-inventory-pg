@@ -12,11 +12,20 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const { allPokemonRouter } = require("./routers/fetchpokemonrouter");
-const renderFromDbRouter = require("./routers/renderFromDbRouter")
+const {
+  allPokemonRouter,
+  allPokemonRouterDb,
+  selectedPokemonsRouter,
+  deletePokemonRouter,
+  updateteamRouter,
+} = require("./routers/renderPokemonRouter");
+const renderFormRouter = require("./routers/renderFormRouter");
 
 app.use("/", allPokemonRouter);
-app.use("/db", renderFromDbRouter);
-
+app.use("/db", allPokemonRouterDb);
+app.use("/form", renderFormRouter);
+app.use("/new", selectedPokemonsRouter);
+app.use("/delete", deletePokemonRouter);
+app.use("/update", updateteamRouter);
 
 app.listen(PORT, console.log(`listening to ${PORT}`));

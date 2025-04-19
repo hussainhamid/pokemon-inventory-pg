@@ -1,6 +1,3 @@
-const db = require("../db/query")
-
-
 async function fetchAllPokemon() {
   try {
     const url = `https://pokeapi.co/api/v2/pokemon?limit=50&offset=0`;
@@ -32,15 +29,8 @@ async function fetchPokemonData(pokemonUrl) {
   return pokemonData;
 }
 
-async function renderAllPokemons(req, res) {
-  const pokemons = await db.getAllPokemons();
- 
-     res.render("displayAllPokemon", {allPokemons: pokemons})
-}
-
 
 module.exports = {
   fetchAllPokemon,
   fetchPokemonData,
-  renderAllPokemons
 };

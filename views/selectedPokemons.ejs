@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/styles.css">
-  <title>All pokemon</title>
+  <title>Selected pokemon</title>
 </head>
 
 <body>
@@ -14,12 +14,10 @@
   <nav class="poke-nav">
     <button class="btn all-poke-btn" onclick="location.href='/'">All pokemons</button>
     <button class="btn your-poke-btn" onclick="location.href='/form'">Create pokemon team</button>
-
-    <% trainers.forEach((trainer) => { %>
-    <button class="btn your-poke-btn" onclick="location.href='/new/<%= trainer %>'"><%= trainer %>'s team</button>
-    <% }) %>
   </nav>
 
+
+  <h1><%= trainer %>'s Pokemons</h1>
 
 
   <div class="pokemon-container">
@@ -40,6 +38,21 @@
 
     <% }) %>
   </div>
+
+  <form method="post" action="/delete/<%= trainer %>">
+    <label for="name">Enter secret password to delete: </label>
+
+    <input id="name" type="text" name="password" required>
+
+    <form>
+      <button>Delete</button>
+    </form>
+  </form>
+
+
+  <form method="get" action="/update/<%= trainer %>">
+    <button>Update</button>
+  </form>
 </body>
 
 </html>

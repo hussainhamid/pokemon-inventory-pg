@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>All db pokemons</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>All db pokemons</title>
+</head>
+
+<body>
 
 
-    <nav class="poke-nav">
-      <button class="btn all-poke-btn" onclick="if (location.pathname !== '/') location.href='/'">All pokemons</button>
-      <button class="btn your-poke-btn">Your pokemons</button>
-    </nav>
+  <nav class="poke-nav">
+    <button class="btn all-poke-btn" onclick="location.href='/'">All pokemons</button>
+    <button class="btn your-poke-btn" onclick="location.href='/form'">Create pokemon team</button>
+    <button class="btn your-poke-btn" onclick="location.href='/new'">view pokemon team</button>
+  </nav>
 
 
-    <div class="pokemon-container">
+  <p>this is display from db</p>
 
-      <% allPokemons.forEach((pokemon) => { %>        
 
-      <div class="pokemon-div">
+  <div class="pokemon-container">
 
-        <img class="poke-img"  src="<%= pokemon.poke_img_url%>" alt="<%= pokemon.name %>" />
-        
-        <p class="poke-id">Id: <%= pokemon.poke_id %></p>
-        
-        <p>Name: <%= pokemon.name %></p>
-        
-        <p class="poke-type">type: <%= pokemon.poke_type %></p>
+    <% allPokemons.forEach((pokemon) => { %>
 
-      </div>
+    <div class="pokemon-div">
 
-      <% }) %>
+      <img class="poke-img" src="<%= pokemon.poke_img_url%>" alt="<%= pokemon.name %>" />
+
+      <p class="poke-id">Id: <%= pokemon.poke_id %></p>
+
+      <p>Name: <%= pokemon.name %></p>
+
+      <p class="poke-type">type: <%= pokemon.poke_type %></p>
+
     </div>
-  </body>
+
+    <% }) %>
+  </div>
+</body>
+
 </html>

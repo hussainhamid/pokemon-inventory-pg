@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+  <title>form</title>
+</head>
+
+<body>
+
+  <h2>Create your own pokemon team</h2>
+
+  <form method="post" class="pokemon-form" action="/new">
+    <label for="name">Your name: </label>
+
+    <input id="name" type="text" name="trainer">
+
+
+    <div class="pokemon-select-div first-pokemon-select">
+      <label for="pokemon1">Pokemon 1: </label>
+
+      <select class="pokemon-select select-1" id="pokemon1" name="pokemon1">
+
+        <% allPokemons.forEach((pokemon) => { %>
+        <option value="<%= pokemon.poke_id %>"><%= pokemon.name %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="pokemon-select-div first-pokemon-select">
+      <label for="pokemon2">Pokemon 2: </label>
+
+      <select class="pokemon-select select-2" id="pokemon2" name="pokemon2">
+
+        <% allPokemons.forEach((pokemon) => { %>
+        <option value="<%= pokemon.poke_id %>"><%= pokemon.name %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="pokemon-select-div first-pokemon-select">
+      <label for="pokemon3">Pokemon 3: </label>
+
+      <select class="pokemon-select select-3" id="pokemon3" name="pokemon3">
+
+        <% allPokemons.forEach((pokemon) => { %>
+        <option value="<%= pokemon.poke_id %>"><%= pokemon.name %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="pokemon-select-div first-pokemon-select">
+      <label for="pokemon4">Pokemon 4: </label>
+
+      <select class="pokemon-select select-4" id="pokemon4" name="pokemon4">
+
+        <% allPokemons.forEach((pokemon) => { %>
+        <option value="<%= pokemon.poke_id %>"><%= pokemon.name %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="pokemon-select-div first-pokemon-select">
+      <label for="pokemon5">Pokemon 5: </label>
+
+      <select class="pokemon-select select-5" id="pokemon5" name="pokemon5">
+
+        <% allPokemons.forEach((pokemon) => { %>
+        <option value="<%= pokemon.poke_id %>"><%= pokemon.name %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="pokemon-select-div first-pokemon-select">
+      <label for="pokemon6">Pokemon 6: </label>
+
+      <select class="pokemon-select select-6" id="pokemon6" name="pokemon6">
+
+        <% allPokemons.forEach((pokemon) => { %>
+        <option value="<%= pokemon.poke_id %>"><%= pokemon.name %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <form>
+      <label for="name">Enter secret password to create: </label>
+
+      <input id="name" type="text" name="password" required>
+
+      <button>Submit</button>
+    </form>
+  </form>
+
+
+
+  <script>
+    new TomSelect('.select-1');
+    new TomSelect('.select-2');
+    new TomSelect('.select-3');
+    new TomSelect('.select-4');
+    new TomSelect('.select-5');
+    new TomSelect('.select-6');
+  </script>
+
+</body>
+
+</html>

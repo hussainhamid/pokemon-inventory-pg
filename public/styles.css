@@ -12,12 +12,6 @@
   padding: 40px;
 }
 
-.pokemon-container a {
-  display: inline;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.87);
-}
-
 .poke-name:hover {
   text-decoration: underline;
 }
@@ -37,5 +31,37 @@
 }
 
 .poke-img:hover {
+  transform: scale(1.1);
+}
+
+.pokemon-select-div {
+  display: flex;
+  padding-top: 30px;
+}
+
+.pokemon-form label {
+  padding-right: 20px;
+}
+
+.pokemon-select {
+  width: 300px;
+}
+
+.poke-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 70px;
+  border-bottom: 2px solid gray;
+}
+
+.poke-nav .btn {
+  font-size: 15px;
+  border-radius: 10px;
+  height: 40px;
+  transition: transform 0.25s ease-in-out;
+}
+
+.btn:hover {
   transform: scale(1.1);
 }
