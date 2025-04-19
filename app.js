@@ -28,4 +28,4 @@ app.use("/new", selectedPokemonsRouter);
 app.use("/delete", deletePokemonRouter);
 app.use("/update", updateteamRouter);
 
-app.listen(PORT || 8080, console.log(`listening to ${PORT}`));
+app.listen(PORT || 8000, console.log(`listening to ${PORT}`));
