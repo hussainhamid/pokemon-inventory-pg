@@ -10,7 +10,7 @@ const { Pool } = require("pg");
 // });
 
 module.exports = new Pool({
-  connectionString: process.env.RENDER_DATABASE_ENV,
+  connectionString: process.env.RENDER_DATABASE_URL,
   ssl: {
     rejectUnauthorized: false,
   },
