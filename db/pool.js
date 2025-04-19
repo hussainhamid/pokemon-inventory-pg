@@ -1,11 +1,17 @@
 require("dotenv").config();
-const {Pool} = require("pg");
+const { Pool } = require("pg");
+
+// module.exports = new Pool({
+//   host: process.env.LOCALHOST_ENV,
+//   user: process.env.USER_ENV,
+//   database: process.env.DATABASE_ENV,
+//   password: process.env.PASS_ENV,
+//   port: process.env.DB_PORT_ENV,
+// });
 
 module.exports = new Pool({
-    host: process.env.LOCALHOST_ENV,
-    user: process.env.USER_ENV,
-    database: process.env.DATABASE_ENV,
-    password: process.env.PASS_ENV,
-    port: process.env.DB_PORT_ENV
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
-
