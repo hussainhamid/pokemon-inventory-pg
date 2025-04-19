@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 const path = require("node:path");
-const PORT = process.env.PORT_ENV;
+const PORT = 3000;
 
 app.use(express.static(__dirname + "/public"));
 
@@ -28,4 +28,4 @@ app.use("/new", selectedPokemonsRouter);
 app.use("/delete", deletePokemonRouter);
 app.use("/update", updateteamRouter);
 
-app.listen(PORT || 8000, console.log(`listening to ${PORT}`));
+app.listen(PORT, console.log(`listening to ${PORT}`));
