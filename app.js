@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 const path = require("node:path");
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 app.use(express.static(__dirname + "/public"));
 
@@ -23,6 +23,7 @@ const renderFormRouter = require("./routers/renderFormRouter");
 
 app.get("/", (req, res) => {
   console.log("app is working");
+  res.send("hello world");
 });
 
 app.use("/", allPokemonRouter);
