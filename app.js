@@ -32,4 +32,4 @@ app.use("/new", selectedPokemonsRouter);
 app.use("/delete", deletePokemonRouter);
 app.use("/update", updateteamRouter);
 
-app.listen(PORT, console.log(`listening to ${PORT}`));
+app.listen(PORT, "0.0.0.0", console.log(`listening to ${PORT}`));
