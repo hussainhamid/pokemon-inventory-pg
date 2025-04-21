@@ -21,11 +21,6 @@ const {
 } = require("./routers/renderPokemonRouter");
 const renderFormRouter = require("./routers/renderFormRouter");
 
-app.get("/", (req, res) => {
-  console.log("app is working");
-  res.send("hello world");
-});
-
 app.use("/", allPokemonRouter);
 app.use("/db", allPokemonRouterDb);
 app.use("/form", renderFormRouter);
